@@ -1,0 +1,6 @@
+{
+  "name": "Nesta Movement Studio",
+  "description": "Premier Movement, Parkour, Calisthenics, Yoga, and Wing Chun studio. Interactive class schedules, transparent memberships, and trial booking.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

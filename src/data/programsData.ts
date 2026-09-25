@@ -1,5 +1,8 @@
 import { DisciplineInfo, ContactInfo } from '../types';
 
+// The verified authentic studio photo uploaded for Nesta Movement Studio
+export const UPLOADED_STUDIO_PHOTO = '/340d29bb-86d1-4808-b30f-7921d91256db.jpg';
+
 export const CONTACT_INFO: ContactInfo = {
   whatsappNumber: '+91 9447330287',
   whatsappFormatted: '+91 9447330287',
@@ -43,9 +46,8 @@ export const DISCIPLINES: DisciplineInfo[] = [
       'Tic-Tac, Cat Leap & Wall Runs',
       'Balance Beam & Rail Flow Work',
     ],
-    // High-resolution athletic parkour imagery
-    imageUrl: '/assets/images/parkour_vault.jpg',
-    secondaryImageUrl: 'https://images.unsplash.com/photo-1526506118085-60ce8714f8c5?q=80&w=1374&auto=format&fit=crop',
+    imageUrl: 'https://static.actu.fr/uploads/2018/08/AdobeStock_160391988.jpeg',
+    secondaryImageUrl: UPLOADED_STUDIO_PHOTO,
     accentColor: 'from-blue-600 to-cyan-500',
     badgeText: 'Dedicated Kids & Adults Tracks',
   },
@@ -76,8 +78,8 @@ export const DISCIPLINES: DisciplineInfo[] = [
       'Front Lever, Back Lever & Planche Progressions',
       'Gymnastic Rings & Weighted Calisthenics',
     ],
-    imageUrl: 'https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?q=80&w=1470&auto=format&fit=crop',
-    secondaryImageUrl: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=1470&auto=format&fit=crop',
+    imageUrl: 'https://cdn.betterme.world/articles/wp-content/uploads/2026/04/military-calisthenics-workout-for-men.jpg',
+    secondaryImageUrl: UPLOADED_STUDIO_PHOTO,
     accentColor: 'from-amber-500 to-orange-600',
     badgeText: 'Adults Only • 2 - 2.5h Deep Dive',
   },
@@ -108,8 +110,8 @@ export const DISCIPLINES: DisciplineInfo[] = [
       'Inversion & Spinal Health Sequences',
       'Deep Fascial Release & Mindfulness Rest',
     ],
-    imageUrl: 'https://images.unsplash.com/photo-1545205597-3d9d02c29597?q=80&w=1470&auto=format&fit=crop',
-    secondaryImageUrl: 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?q=80&w=1470&auto=format&fit=crop',
+    imageUrl: 'https://media.istockphoto.com/id/1281947349/photo/yoga-men-workout-in-studio-in-front-of-a-window.jpg?s=170667a&w=0&k=20&c=fyZD1lyR9eTgGANjB0TcUKt2Xj7M-6eQmhzCTVBnvPY=',
+    secondaryImageUrl: UPLOADED_STUDIO_PHOTO,
     accentColor: 'from-emerald-500 to-teal-600',
     badgeText: 'Adults Only • Morning & Evening Tracks',
   },
@@ -140,8 +142,8 @@ export const DISCIPLINES: DisciplineInfo[] = [
       'Muk Yan Jong (Wooden Dummy Practice & Conditioning)',
       'Direct Footwork, Stances & Centerline Trapping',
     ],
-    imageUrl: 'https://images.unsplash.com/photo-1555597673-b21d5c935865?q=80&w=1472&auto=format&fit=crop',
-    secondaryImageUrl: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=1520&auto=format&fit=crop',
+    imageUrl: 'https://static0.moviewebimages.com/wordpress/wp-content/uploads/2023/05/donnie-yen-in-ip-man-4.jpg?&fit=crop&w=1200&h=675',
+    secondaryImageUrl: UPLOADED_STUDIO_PHOTO,
     accentColor: 'from-rose-600 to-red-500',
     badgeText: 'Adults Only • 4 Sessions/Mo (Fridays 6–8 PM)',
   },

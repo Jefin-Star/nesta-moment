@@ -1,5 +1,4 @@
 import React, { useState, useMemo } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
 import {
   Calendar as CalendarIcon,
   Clock,
@@ -273,12 +272,8 @@ export const ScheduleSection: React.FC<ScheduleSectionProps> = ({ onOpenBooking 
               const isKidsClass = session.isKids;
 
               return (
-                <motion.div
+                <div
                   key={session.id}
-                  layout
-                  initial={{ opacity: 0, scale: 0.98 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.25 }}
                   className={`rounded-2xl p-5 border transition-all duration-300 flex flex-col justify-between ${
                     isKidsClass
                       ? 'bg-slate-950/90 border-blue-850 hover:border-blue-500/50 shadow-md'
@@ -374,7 +369,7 @@ export const ScheduleSection: React.FC<ScheduleSectionProps> = ({ onOpenBooking 
                       Details
                     </button>
                   </div>
-                </motion.div>
+                </div>
               );
             })}
           </div>

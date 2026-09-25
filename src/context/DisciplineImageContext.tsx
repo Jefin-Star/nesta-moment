@@ -5,18 +5,19 @@ import {
   CustomDisciplineAlignments,
   ImageAlignment,
   DEFAULT_ALIGNMENT,
-  getStoredDisciplineImages,
-  saveDisciplineImage,
-  resetDisciplineImage,
-  getStoredDisciplineAlignments,
-  saveDisciplineAlignment,
-  resetDisciplineAlignment,
 } from '../utils/imageStorage';
+
+const DISCIPLINE_DEFAULT_IMAGES: Record<DisciplineId, string> = {
+  parkour: 'https://static.actu.fr/uploads/2018/08/AdobeStock_160391988.jpeg',
+  calisthenics: 'https://cdn.betterme.world/articles/wp-content/uploads/2026/04/military-calisthenics-workout-for-men.jpg',
+  yoga: 'https://media.istockphoto.com/id/1281947349/photo/yoga-men-workout-in-studio-in-front-of-a-window.jpg?s=170667a&w=0&k=20&c=fyZD1lyR9eTgGANjB0TcUKt2Xj7M-6eQmhzCTVBnvPY=',
+  'wing-chun': 'https://static0.moviewebimages.com/wordpress/wp-content/uploads/2023/05/donnie-yen-in-ip-man-4.jpg?&fit=crop&w=1200&h=675',
+};
 
 interface DisciplineImageContextType {
   customImages: CustomDisciplineImages;
   alignments: CustomDisciplineAlignments;
-  getImageForDiscipline: (id: DisciplineId, defaultUrl: string) => string;
+  getImageForDiscipline: (id: DisciplineId, defaultUrl?: string) => string;
   hasCustomImage: (id: DisciplineId) => boolean;
   updateImage: (id: DisciplineId, dataUrl: string) => void;
   resetImage: (id: DisciplineId) => void;
@@ -28,39 +29,24 @@ interface DisciplineImageContextType {
 const DisciplineImageContext = createContext<DisciplineImageContextType | undefined>(undefined);
 
 export const DisciplineImageProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [customImages, setCustomImages] = useState<CustomDisciplineImages>(() => getStoredDisciplineImages());
-  const [alignments, setAlignments] = useState<CustomDisciplineAlignments>(() => getStoredDisciplineAlignments());
+  const [customImages, setCustomImages] = useState<CustomDisciplineImages>({});
+  const [alignments, setAlignments] = useState<CustomDisciplineAlignments>({});
 
   useEffect(() => {
-    const handleImagesUpdate = (e: Event) => {
-      const customEvent = e as CustomEvent<CustomDisciplineImages>;
-      if (customEvent.detail) {
-        setCustomImages(customEvent.detail);
-      } else {
-        setCustomImages(getStoredDisciplineImages());
-      }
-    };
-
-    const handleAlignmentsUpdate = (e: Event) => {
-      const customEvent = e as CustomEvent<CustomDisciplineAlignments>;
-      if (customEvent.detail) {
-        setAlignments(customEvent.detail);
-      } else {
-        setAlignments(getStoredDisciplineAlignments());
-      }
-    };
-
-    window.addEventListener('nesta:discipline-images-updated', handleImagesUpdate);
-    window.addEventListener('nesta:discipline-alignments-updated', handleAlignmentsUpdate);
-
-    return () => {
-      window.removeEventListener('nesta:discipline-images-updated', handleImagesUpdate);
-      window.removeEventListener('nesta:discipline-alignments-updated', handleAlignmentsUpdate);
-    };
+    // Purge legacy storage cache
+    try {
+      localStorage.clear();
+      sessionStorage.clear();
+    } catch {
+      // ignore
+    }
   }, []);
 
-  const getImageForDiscipline = (id: DisciplineId, defaultUrl: string): string => {
-    return customImages[id] || defaultUrl;
+  // Return the official requested image for each discipline
+  const getImageForDiscipline = (id: DisciplineId, defaultUrl?: string): string => {
+    if (customImages[id]) return customImages[id]!;
+    if (defaultUrl) return defaultUrl;
+    return DISCIPLINE_DEFAULT_IMAGES[id] || '/340d29bb-86d1-4808-b30f-7921d91256db.jpg';
   };
 
   const hasCustomImage = (id: DisciplineId): boolean => {
@@ -68,14 +54,15 @@ export const DisciplineImageProvider: React.FC<{ children: React.ReactNode }> = 
   };
 
   const updateImage = (id: DisciplineId, dataUrl: string) => {
-    const updated = saveDisciplineImage(id, dataUrl);
-    setCustomImages(updated);
+    setCustomImages((prev) => ({ ...prev, [id]: dataUrl }));
   };
 
   const resetImage = (id: DisciplineId) => {
-    const updated = resetDisciplineImage(id);
-    setCustomImages(updated);
-    resetDisciplineAlignment(id);
+    setCustomImages((prev) => {
+      const next = { ...prev };
+      delete next[id];
+      return next;
+    });
   };
 
   const getAlignmentForDiscipline = (id: DisciplineId): ImageAlignment => {
@@ -83,13 +70,15 @@ export const DisciplineImageProvider: React.FC<{ children: React.ReactNode }> = 
   };
 
   const updateAlignment = (id: DisciplineId, alignment: ImageAlignment) => {
-    const updated = saveDisciplineAlignment(id, alignment);
-    setAlignments(updated);
+    setAlignments((prev) => ({ ...prev, [id]: alignment }));
   };
 
   const resetAlignment = (id: DisciplineId) => {
-    const updated = resetDisciplineAlignment(id);
-    setAlignments(updated);
+    setAlignments((prev) => {
+      const next = { ...prev };
+      delete next[id];
+      return next;
+    });
   };
 
   return (

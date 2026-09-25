@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { motion } from 'motion/react';
 import {
   ShieldCheck,
   Award,
@@ -11,7 +10,7 @@ import {
   Sparkles,
   Zap,
 } from 'lucide-react';
-import { CONTACT_INFO } from '../data/programsData';
+import { CONTACT_INFO, UPLOADED_STUDIO_PHOTO } from '../data/programsData';
 
 export const AboutStudio: React.FC = () => {
   const [openFaq, setOpenFaq] = useState<number | null>(0);
@@ -85,7 +84,7 @@ export const AboutStudio: React.FC = () => {
           <div className="lg:col-span-6 relative">
             <div className="relative rounded-3xl overflow-hidden border border-slate-800 shadow-2xl">
               <img
-                src="https://images.unsplash.com/photo-1517838277536-f5f99be501cd?q=80&w=1200&auto=format&fit=crop"
+                src={UPLOADED_STUDIO_PHOTO}
                 alt="Nesta Movement Studio Atmosphere"
                 referrerPolicy="no-referrer"
                 className="w-full h-[440px] object-cover"

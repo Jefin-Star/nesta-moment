@@ -1,34 +1,11 @@
-import React, { useState, useRef } from 'react';
-import { MessageCircle, Mail, Instagram, ArrowUp, Heart, Sparkles } from 'lucide-react';
+import React from 'react';
+import { MessageCircle, Mail, Instagram, ArrowUp } from 'lucide-react';
 import { NestaLogo } from './NestaLogo';
-import { CONTACT_INFO, DISCIPLINES } from '../data/programsData';
+import { CONTACT_INFO } from '../data/programsData';
 
-interface FooterProps {
-  onSecretAdminTrigger?: () => void;
-}
-
-export const Footer: React.FC<FooterProps> = ({ onSecretAdminTrigger }) => {
-  const [clickCount, setClickCount] = useState(0);
-  const clickTimerRef = useRef<NodeJS.Timeout | null>(null);
-
+export const Footer: React.FC = () => {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
-  const handleSecretTrigger = () => {
-    setClickCount((prev) => {
-      const next = prev + 1;
-      if (next >= 3) {
-        if (onSecretAdminTrigger) onSecretAdminTrigger();
-        return 0;
-      }
-      return next;
-    });
-
-    if (clickTimerRef.current) clearTimeout(clickTimerRef.current);
-    clickTimerRef.current = setTimeout(() => {
-      setClickCount(0);
-    }, 1200);
   };
 
   return (
@@ -178,11 +155,7 @@ export const Footer: React.FC<FooterProps> = ({ onSecretAdminTrigger }) => {
 
         {/* Bottom copyright bar */}
         <div className="mt-12 pt-8 border-t border-slate-900 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-slate-500">
-          <div
-            onClick={handleSecretTrigger}
-            className="cursor-default select-none"
-            title=""
-          >
+          <div className="cursor-default select-none">
             © {new Date().getFullYear()} Nesta Movement Studio. All rights reserved.
           </div>
 

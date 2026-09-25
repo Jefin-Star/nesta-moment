@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { motion } from 'motion/react';
 import {
   MessageCircle,
   Mail,
@@ -44,7 +43,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onOpenBooking })
       formData.ageGroup
     )})%0A*Message:* ${encodeURIComponent(formData.message || 'I would like more information.')}%0A%0APlease let me know how to get started!`;
 
-    window.open(`https://wa.me/919447330287?text=${text}`, '_blank', 'noopener,noreferrer');
+    window.location.href = `https://wa.me/919447330287?text=${text}`;
   };
 
   return (

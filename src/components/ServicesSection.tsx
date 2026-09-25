@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
 import {
   Check,
   Calendar,
@@ -80,15 +79,10 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onOpenBooking 
         </div>
 
         {/* Active Discipline Feature Showcase */}
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={selectedDiscipline.id}
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -15 }}
-            transition={{ duration: 0.35 }}
-            className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch"
-          >
+        <div
+          key={selectedDiscipline.id}
+          className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch transition-all duration-300"
+        >
             {/* Visual Photography Showcase (5 cols) */}
             <div className="lg:col-span-5 flex flex-col gap-4">
               <DisciplineImageDisplay
@@ -100,26 +94,21 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onOpenBooking 
                 sessionsPerMonth={selectedDiscipline.sessionsPerMonth}
               />
 
-              {/* Secondary Supporting Image with session stats */}
-              <div className="relative rounded-2xl overflow-hidden border border-slate-800 h-40 hidden sm:block">
-                <img
-                  src={selectedDiscipline.secondaryImageUrl}
-                  alt={`${selectedDiscipline.name} Training Rig`}
-                  referrerPolicy="no-referrer"
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 bg-slate-950/70 backdrop-blur-[2px] p-4 flex items-center justify-between">
-                  <div className="space-y-1">
-                    <div className="text-xs uppercase font-bold text-blue-400 tracking-wider">Session Format</div>
-                    <div className="text-sm font-semibold text-white">{selectedDiscipline.sessionDuration}</div>
+              {/* Session Format & Quick Action Card */}
+              <div className="relative rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/90 p-5 hidden sm:flex items-center justify-between backdrop-blur-md">
+                <div className="space-y-1">
+                  <div className="text-xs uppercase font-bold text-blue-400 tracking-wider flex items-center gap-1.5">
+                    <Clock className="w-3.5 h-3.5" />
+                    Session Format
                   </div>
-                  <button
-                    onClick={() => onOpenBooking(selectedDiscipline.id)}
-                    className="px-4 py-2 rounded-xl text-xs font-bold bg-white text-slate-950 hover:bg-slate-200 transition"
-                  >
-                    Try This Discipline
-                  </button>
+                  <div className="text-sm font-semibold text-white">{selectedDiscipline.sessionDuration}</div>
                 </div>
+                <button
+                  onClick={() => onOpenBooking(selectedDiscipline.id)}
+                  className="px-4 py-2.5 rounded-xl text-xs font-bold bg-white text-slate-950 hover:bg-slate-200 transition shadow-sm"
+                >
+                  Try This Discipline
+                </button>
               </div>
             </div>
 
@@ -361,8 +350,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onOpenBooking 
                 </div>
               </div>
             </div>
-          </motion.div>
-        </AnimatePresence>
+        </div>
 
         {/* Quick Grid of all 4 disciplines preview cards */}
         <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">

@@ -1,35 +1,15 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { Menu, X, MessageCircle, Phone, Instagram, Mail, Calendar, ArrowRight } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { Menu, X, MessageCircle, Instagram, Mail, Calendar, ArrowRight } from 'lucide-react';
 import { NestaLogo } from './NestaLogo';
 import { CONTACT_INFO } from '../data/programsData';
 
 interface NavbarProps {
   onOpenBooking: (discipline?: any, ageGroup?: any, slot?: string) => void;
-  onSecretAdminTrigger?: () => void;
 }
 
-export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking, onSecretAdminTrigger }) => {
+export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [logoClicks, setLogoClicks] = useState(0);
-  const logoTimerRef = useRef<NodeJS.Timeout | null>(null);
-
-  const handleLogoClick = (e: React.MouseEvent) => {
-    setLogoClicks((prev) => {
-      const next = prev + 1;
-      if (next >= 3) {
-        e.preventDefault();
-        if (onSecretAdminTrigger) onSecretAdminTrigger();
-        return 0;
-      }
-      return next;
-    });
-
-    if (logoTimerRef.current) clearTimeout(logoTimerRef.current);
-    logoTimerRef.current = setTimeout(() => {
-      setLogoClicks(0);
-    }, 1200);
-  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -96,7 +76,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking, onSecretAdminTrig
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
           {/* Logo brand */}
-          <a href="#" onClick={handleLogoClick} className="flex items-center gap-3 group">
+          <a href="#" className="flex items-center gap-3 group">
             <div className="relative p-1.5 rounded-xl bg-slate-900 border border-slate-800 group-hover:border-blue-500/50 transition">
               <NestaLogo className="h-9 px-2" theme="dark" />
             </div>

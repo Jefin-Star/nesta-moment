@@ -1,5 +1,4 @@
 import React from 'react';
-import { motion } from 'motion/react';
 import { Calendar, MessageCircle, ArrowRight, ShieldCheck, Flame, Compass, ChevronDown } from 'lucide-react';
 import { CONTACT_INFO } from '../data/programsData';
 
@@ -28,52 +27,32 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking }) => {
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10">
         {/* Top pill badge */}
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-900/90 border border-slate-700/80 text-xs font-semibold text-blue-300 mb-6 shadow-inner backdrop-blur-md"
-        >
+        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-900/90 border border-slate-700/80 text-xs font-semibold text-blue-300 mb-6 shadow-inner backdrop-blur-md transition-all duration-500">
           <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
           <span>Kerala's Premier Movement & Agility Facility</span>
           <span className="text-slate-600">•</span>
           <span className="text-slate-300">New Batches Now Enrolling</span>
-        </motion.div>
+        </div>
 
         {/* Main Title */}
-        <motion.h1
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.1 }}
-          className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white font-display uppercase max-w-5xl mx-auto leading-[1.08]"
-        >
+        <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white font-display uppercase max-w-5xl mx-auto leading-[1.08]">
           Master Your Body.{' '}
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-cyan-300 to-emerald-400">
             Defy Your Limits.
           </span>
-        </motion.h1>
+        </h1>
 
         {/* Subtitle description */}
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.2 }}
-          className="mt-6 text-base sm:text-xl text-slate-300 max-w-3xl mx-auto font-normal leading-relaxed"
-        >
+        <p className="mt-6 text-base sm:text-xl text-slate-300 max-w-3xl mx-auto font-normal leading-relaxed">
           Welcome to <strong className="text-white font-semibold">Nesta Movement Studio</strong>. An elite, intentional training space combining the spatial mastery of{' '}
           <span className="text-blue-300 font-medium">Parkour</span>, the raw strength of{' '}
           <span className="text-amber-300 font-medium">Calisthenics</span>, the kinetic decompression of{' '}
           <span className="text-emerald-300 font-medium">Yoga</span>, and the centerline precision of{' '}
           <span className="text-rose-300 font-medium">Wing Chun</span>.
-        </motion.p>
+        </p>
 
         {/* CTAs */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.3 }}
-          className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 max-w-lg mx-auto"
-        >
+        <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 max-w-lg mx-auto">
           <a
             href={CONTACT_INFO.whatsappUrl}
             target="_blank"
@@ -91,15 +70,10 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking }) => {
             <Calendar className="w-4 h-4" />
             <span>Book a Trial Class</span>
           </button>
-        </motion.div>
+        </div>
 
         {/* Quick Nav Anchors */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.7, delay: 0.4 }}
-          className="mt-6 flex items-center justify-center gap-6 text-xs text-slate-400 font-medium"
-        >
+        <div className="mt-6 flex items-center justify-center gap-6 text-xs text-slate-400 font-medium">
           <a href="#schedule" className="hover:text-blue-400 transition flex items-center gap-1">
             <span>View Interactive Schedule</span>
             <ArrowRight className="w-3 h-3" />
@@ -109,16 +83,11 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking }) => {
             <span>Transparent Pricing from ₹2,000</span>
             <ArrowRight className="w-3 h-3" />
           </a>
-        </motion.div>
+        </div>
 
         {/* Studio Highlights Grid */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.5 }}
-          className="mt-14 grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 text-left max-w-5xl mx-auto"
-        >
-          <div className="p-4 rounded-2xl bg-slate-900/70 border border-slate-800/80 backdrop-blur-sm">
+        <div className="mt-14 grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 text-left max-w-5xl mx-auto">
+          <div className="p-4 rounded-2xl bg-slate-900/70 border border-slate-800/80 backdrop-blur-sm hover:border-blue-500/40 transition">
             <div className="text-blue-400 mb-2">
               <Compass className="w-5 h-5" />
             </div>
@@ -128,7 +97,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking }) => {
             </div>
           </div>
 
-          <div className="p-4 rounded-2xl bg-slate-900/70 border border-slate-800/80 backdrop-blur-sm">
+          <div className="p-4 rounded-2xl bg-slate-900/70 border border-slate-800/80 backdrop-blur-sm hover:border-amber-500/40 transition">
             <div className="text-amber-400 mb-2">
               <Flame className="w-5 h-5" />
             </div>
@@ -138,7 +107,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking }) => {
             </div>
           </div>
 
-          <div className="p-4 rounded-2xl bg-slate-900/70 border border-slate-800/80 backdrop-blur-sm">
+          <div className="p-4 rounded-2xl bg-slate-900/70 border border-slate-800/80 backdrop-blur-sm hover:border-emerald-500/40 transition">
             <div className="text-emerald-400 mb-2">
               <ShieldCheck className="w-5 h-5" />
             </div>
@@ -148,7 +117,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking }) => {
             </div>
           </div>
 
-          <div className="p-4 rounded-2xl bg-slate-900/70 border border-slate-800/80 backdrop-blur-sm">
+          <div className="p-4 rounded-2xl bg-slate-900/70 border border-slate-800/80 backdrop-blur-sm hover:border-rose-500/40 transition">
             <div className="text-rose-400 mb-2">
               <Compass className="w-5 h-5" />
             </div>
@@ -157,7 +126,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking }) => {
               Traditional Chinese Kung Fu, Chi Sau sensitivity & centerline defense.
             </div>
           </div>
-        </motion.div>
+        </div>
 
         {/* Scroll down indicator */}
         <div className="mt-12 flex justify-center">

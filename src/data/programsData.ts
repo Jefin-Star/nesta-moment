@@ -60,7 +60,7 @@ export const DISCIPLINES: DisciplineInfo[] = [
     monthlyFee: 2000,
     sessionsPerMonth: 8,
     sessionDuration: '2 - 2.5 hours deep dive per session',
-    scheduleDays: 'Mon 6:30 PM, Tue 7 AM, Sat 7 AM, Sun 8:30 AM',
+    scheduleDays: 'Mon 6:30 PM, Tue 7 PM, Sat 7 AM, Sun 8:30 AM',
     scheduleDetails: '8 extended sessions per month (2-2.5h deep dive per class)',
     description:
       'Master your own bodyweight with progressive gymnastic strength, bar dynamics, and joint longevity. Our signature extended 2 to 2.5-hour sessions provide deep coaching across fundamental strength, advanced isometric holds (planche, front lever), handstand balance, muscle-ups, and mobility recovery.',

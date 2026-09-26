@@ -13,6 +13,7 @@ import {
   ChevronRight,
   Sun,
   Moon,
+  MoonStar,
 } from 'lucide-react';
 import { SCHEDULE_SESSIONS, DAYS_OF_WEEK } from '../data/scheduleData';
 import { CONTACT_INFO } from '../data/programsData';
@@ -103,7 +104,7 @@ export const ScheduleSection: React.FC<ScheduleSectionProps> = ({ onOpenBooking 
             <div>
               <strong className="text-amber-300 font-bold block">Calisthenics (Adults Only)</strong>
               <span className="text-slate-300">
-                Mon 6:30 PM, Tue 7 AM, Sat 7 AM, Sun 8:30 AM.<br />
+                Mon 6:30 PM, Tue 7 PM, Sat 7 AM, Sun 8:30 AM.<br />
                 Comprehensive <strong>2 to 2.5 hour</strong> extended skill deep-dives.
               </span>
             </div>
@@ -311,10 +312,10 @@ export const ScheduleSection: React.FC<ScheduleSectionProps> = ({ onOpenBooking 
                     {/* Time Slot & Duration Badge */}
                     <div className="mt-3 p-3 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-between">
                       <div className="flex items-center gap-2 text-xs font-bold text-white">
-                        {session.timeOfDay === 'morning' ? (
-                          <Sun className="w-4 h-4 text-amber-400" />
+                        {session.timeOfDay === 'evening' || session.timeSlot.toLowerCase().includes('pm') ? (
+                          <MoonStar className="w-4 h-4 text-indigo-400 shrink-0" />
                         ) : (
-                          <Moon className="w-4 h-4 text-indigo-400" />
+                          <Sun className="w-4 h-4 text-amber-400 shrink-0" />
                         )}
                         <span>{session.timeSlot}</span>
                       </div>

@@ -139,7 +139,7 @@ export const DISCIPLINES: DisciplineInfo[] = [
     keyElements: [
       'Siu Nim Tao & Chum Kiu Hand Forms',
       'Chi Sau (Tactile Sticky Hands & Sensitivity Drill)',
-      'Muk Yan Jong (Wooden Dummy Practice & Conditioning)',
+      'Centerline Trapping & Tactile Sensitivity Conditioning',
       'Direct Footwork, Stances & Centerline Trapping',
     ],
     imageUrl: 'https://static0.moviewebimages.com/wordpress/wp-content/uploads/2023/05/donnie-yen-in-ip-man-4.jpg?&fit=crop&w=1200&h=675',

@@ -30,7 +30,7 @@ export const AboutStudio: React.FC = () => {
     },
     {
       q: 'What should I bring and wear to my first class?',
-      a: 'Wear comfortable athletic attire allowing full range of motion (track pants/shorts, breathable t-shirt). For Parkour and Calisthenics, wear flexible athletic shoes with good rubber grip. Yoga and Wing Chun are practiced barefoot or in grip socks.',
+      a: 'Wear comfortable athletic attire that allows a full range of motion (track pants/shorts, breathable T-shirt). For Parkour and Calisthenics, wear flexible athletic shoes with good rubber grip; shoes are optional. Yoga and Wing Chun are practiced barefoot or in grip socks.',
     },
     {
       q: 'How do I book a trial class or enroll?',
@@ -76,7 +76,7 @@ export const AboutStudio: React.FC = () => {
                   <Zap className="w-5 h-5" />
                 </div>
                 <div className="text-sm font-bold text-white font-display">Custom Facilities</div>
-                <div className="text-xs text-slate-400 mt-0.5">Calisthenics rigs, crash mats, wooden dummy kwoon.</div>
+                <div className="text-xs text-slate-400 mt-0.5">Calisthenics rigs, crash mats, and movement floor.</div>
               </div>
             </div>
           </div>

@@ -214,9 +214,9 @@ export const SCHEDULE_SESSIONS: ScheduleSession[] = [
     timeSlot: '6:00 PM - 8:00 PM',
     timeOfDay: 'evening',
     duration: '2 hours',
-    location: 'Martial Kwoon & Wooden Dummy Rig',
+    location: 'Martial Arts Studio',
     level: 'Adults Only • 4 Sessions / Month',
-    highlights: 'Siu Nim Tao forms, Chi Sau (sticky hands), Muk Yan Jong wooden dummy conditioning & trapping',
+    highlights: 'Siu Nim Tao forms, Chi Sau (sticky hands), limb trapping & centerline combat drills',
   },
   {
     id: 'fri-parkour-adults',

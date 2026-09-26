@@ -219,7 +219,7 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onOpenBooking })
                   <span>4 Sessions/Month • Every Friday 6–8 PM</span>
                 </div>
                 <p className="mt-3 text-xs text-slate-300 leading-relaxed">
-                  Traditional Chinese Kung Fu held every Friday from 6 to 8 PM (2-hour deep dives). Siu Nim Tao hand forms, Chi Sau sticky hands, and wooden dummy (Muk Yan Jong) conditioning.
+                  Traditional Chinese Kung Fu held every Friday from 6 to 8 PM (2-hour deep dives). Siu Nim Tao hand forms, Chi Sau sticky hands, and structure & trapping conditioning.
                 </p>
                 <ul className="mt-4 space-y-2 text-xs text-slate-400 border-t border-slate-800/80 pt-3">
                   <li className="flex items-center gap-2">
@@ -228,7 +228,7 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onOpenBooking })
                   </li>
                   <li className="flex items-center gap-2">
                     <Check className="w-3.5 h-3.5 text-rose-400" />
-                    <span>Traditional kwoon & wooden dummy</span>
+                    <span>Traditional forms & tactile partner drills</span>
                   </li>
                 </ul>
               </div>

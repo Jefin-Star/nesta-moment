@@ -248,10 +248,10 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onOpenBooking 
                             </span>
                             <div>
                               <strong className="text-white block font-semibold text-[11px]">
-                                Week 3 (Fri 6-8 PM): Muk Yan Jong (Dummy)
+                                Week 3 (Fri 6-8 PM): Trapping & Deflection
                               </strong>
                               <span className="text-[10px] text-slate-400">
-                                Wooden dummy conditioning, limb trapping & deflection angles.
+                                Tactical sensitivity conditioning, limb trapping & deflection angles.
                               </span>
                             </div>
                           </div>
@@ -403,7 +403,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onOpenBooking 
                 <strong className="text-white">four focused sessions per month</strong>, held{' '}
                 <strong className="text-rose-400">every Friday from 6:00 PM to 8:00 PM</strong>. Each 2-hour
                 session delivers intensive coaching in centerline structure, tactile sensitivity (Chi Sau), and
-                wooden dummy mechanics for adults.
+                close-quarter defensive mechanics for adults.
               </p>
             </div>
 
@@ -505,9 +505,9 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onOpenBooking 
                     </span>
                     <span className="text-[10px] text-slate-400">6:00 – 8:00 PM</span>
                   </div>
-                  <div className="font-bold text-white text-sm mb-1">Wooden Dummy & Trapping</div>
+                  <div className="font-bold text-white text-sm mb-1">Trapping & Counter-Strikes</div>
                   <p className="text-slate-300 text-[11px] leading-relaxed">
-                    Muk Yan Jong (wooden dummy) conditioning, simultaneous block-and-strike (Lin Sil Dai Da), and angles of limb trapping.
+                    Tactile deflection conditioning, simultaneous block-and-strike (Lin Sil Dai Da), and angles of limb trapping.
                   </p>
                 </div>
 

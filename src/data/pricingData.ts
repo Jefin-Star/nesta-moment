@@ -62,6 +62,6 @@ export const MEMBERSHIP_PERKS = [
   },
   {
     title: 'Facility Amenities',
-    description: 'Custom calisthenics rigs, crash mats, wooden dummy kwoon, change rooms, clean hydration.',
+    description: 'Custom calisthenics rigs, crash mats, change rooms, clean hydration.',
   },
 ];

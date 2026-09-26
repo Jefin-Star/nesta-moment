@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
+  <rect width="128" height="128" rx="28" fill="#090d16" stroke="#1e293b" stroke-width="4"/>
+  <!-- Exact Mortend Bold 'N' from official NESTA logo -->
+  <g fill="#ffffff" transform="translate(18, 25) scale(0.95)">
+    <path d="M77 57.40L77 6.50L95.90 6.50L95.90 77.90L67.90 77.90L23.90 27L23.90 77.90L5 77.90L5 6.50L33 6.50" />
+  </g>
+</svg>

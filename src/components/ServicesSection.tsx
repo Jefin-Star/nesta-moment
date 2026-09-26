@@ -461,71 +461,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onOpenBooking 
               </div>
             </div>
 
-            {/* Monthly 4-Session Breakdown Progression */}
-            <div className="mt-8 pt-6 border-t border-rose-950">
-              <h4 className="text-xs font-bold uppercase tracking-wider text-rose-300 mb-4 flex items-center gap-2">
-                <Calendar className="w-4 h-4 text-rose-400" />
-                <span>4-Week Monthly Session Breakdown (Every Friday 6:00 PM – 8:00 PM)</span>
-              </h4>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-xs">
-                {/* Week 1 */}
-                <div className="p-4 rounded-xl bg-slate-950/80 border border-slate-800">
-                  <div className="flex items-center justify-between mb-2">
-                    <span className="px-2 py-0.5 rounded bg-rose-500/20 text-rose-300 text-[10px] font-bold">
-                      Session 1 • 1st Friday
-                    </span>
-                    <span className="text-[10px] text-slate-400">6:00 – 8:00 PM</span>
-                  </div>
-                  <div className="font-bold text-white text-sm mb-1">Centerline & Siu Nim Tao</div>
-                  <p className="text-slate-300 text-[11px] leading-relaxed">
-                    Stance rooting, Yee Jee Kim Yeung Ma balance, fundamental punch mechanics, and centerline defensive angles.
-                  </p>
-                </div>
-
-                {/* Week 2 */}
-                <div className="p-4 rounded-xl bg-slate-950/80 border border-slate-800">
-                  <div className="flex items-center justify-between mb-2">
-                    <span className="px-2 py-0.5 rounded bg-rose-500/20 text-rose-300 text-[10px] font-bold">
-                      Session 2 • 2nd Friday
-                    </span>
-                    <span className="text-[10px] text-slate-400">6:00 – 8:00 PM</span>
-                  </div>
-                  <div className="font-bold text-white text-sm mb-1">Chi Sau & Tactile Sensitivity</div>
-                  <p className="text-slate-300 text-[11px] leading-relaxed">
-                    Sticky hands training: Dan Chi Sau (single) and Seung Chi Sau (double), learning to read opponent pressure through tactile reflex.
-                  </p>
-                </div>
-
-                {/* Week 3 */}
-                <div className="p-4 rounded-xl bg-slate-950/80 border border-slate-800">
-                  <div className="flex items-center justify-between mb-2">
-                    <span className="px-2 py-0.5 rounded bg-rose-500/20 text-rose-300 text-[10px] font-bold">
-                      Session 3 • 3rd Friday
-                    </span>
-                    <span className="text-[10px] text-slate-400">6:00 – 8:00 PM</span>
-                  </div>
-                  <div className="font-bold text-white text-sm mb-1">Trapping & Counter-Strikes</div>
-                  <p className="text-slate-300 text-[11px] leading-relaxed">
-                    Tactile deflection conditioning, simultaneous block-and-strike (Lin Sil Dai Da), and angles of limb trapping.
-                  </p>
-                </div>
-
-                {/* Week 4 */}
-                <div className="p-4 rounded-xl bg-slate-950/80 border border-slate-800">
-                  <div className="flex items-center justify-between mb-2">
-                    <span className="px-2 py-0.5 rounded bg-rose-500/20 text-rose-300 text-[10px] font-bold">
-                      Session 4 • 4th Friday
-                    </span>
-                    <span className="text-[10px] text-slate-400">6:00 – 8:00 PM</span>
-                  </div>
-                  <div className="font-bold text-white text-sm mb-1">Close-Quarter Combat Flow</div>
-                  <p className="text-slate-300 text-[11px] leading-relaxed">
-                    Practical self-defense applications, reaction flow under stress, Chum Kiu footwork transitions, and stance recovery.
-                  </p>
-                </div>
-              </div>
-            </div>
 
             {/* Bottom Call to Action Bar */}
             <div className="mt-8 pt-6 border-t border-rose-950 flex flex-col sm:flex-row items-center justify-between gap-4">

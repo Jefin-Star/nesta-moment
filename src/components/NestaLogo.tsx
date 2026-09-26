@@ -2,49 +2,116 @@ import React from 'react';
 
 interface NestaLogoProps {
   className?: string;
-  theme?: 'dark' | 'light' | 'auto';
+  size?: 'sm' | 'md' | 'lg' | 'xl' | '2xl' | 'hero';
+  theme?: 'dark-blue' | 'white' | 'light' | 'auto';
   showSubtitle?: boolean;
+  solidBackground?: boolean;
+  style?: React.CSSProperties;
 }
 
-export const NestaLogo: React.FC<NestaLogoProps> = ({
-  className = 'h-10',
-  theme = 'auto',
-  showSubtitle = true,
-}) => {
-  // Color configuration: deep navy as in the uploaded logo, or crisp white on dark
-  const textColor =
-    theme === 'light'
-      ? 'text-[#192652]'
-      : theme === 'dark'
-      ? 'text-white'
-      : 'text-white';
+const SIZE_MAP = {
+  sm: 'h-8 sm:h-9',
+  md: 'h-10 sm:h-11',
+  lg: 'h-12 sm:h-13 md:h-14',
+  xl: 'h-14 sm:h-16 md:h-18',
+  '2xl': 'h-18 sm:h-20 md:h-24',
+  hero: 'h-16 sm:h-20 md:h-24 lg:h-28',
+};
 
-  const subColor =
-    theme === 'light'
-      ? 'text-[#24356e]'
-      : theme === 'dark'
-      ? 'text-slate-300'
-      : 'text-blue-200/80';
+/**
+ * Balanced and visually uniform recreation of the NESTA MOVEMENT logo:
+ * - Mortend Bold with native kerning pairs applied (eliminating uneven letter spacing)
+ * - 'NESTA' letterforms optically balanced with uniform inter-glyph rhythm
+ * - 'MOVEMENT' centered directly below with matched proportional tracking
+ * - Crisp, clean, professional proportions on a solid black background
+ */
+export const NestaLogo: React.FC<NestaLogoProps> = ({
+  className = '',
+  size = 'lg',
+  theme = 'dark-blue',
+  showSubtitle = true,
+  solidBackground = true,
+  style,
+}) => {
+  const dimensionClass = className.includes('h-') ? className : `${SIZE_MAP[size]} ${className}`;
+
+  const fillSource =
+    theme === 'dark-blue'
+      ? 'url(#nestaDarkBlueGrad)'
+      : theme === 'white'
+      ? '#ffffff'
+      : theme === 'light'
+      ? '#18254c'
+      : 'currentColor';
 
   return (
-    <div className={`flex flex-col items-center justify-center select-none ${className}`}>
-      {/* Brand typographic mark matching the uploaded official NESTA MOVEMENT logo */}
-      <div className="flex items-center tracking-tighter leading-none font-black font-display">
-        <span
-          className={`text-2xl md:text-3xl font-extrabold tracking-[-0.03em] ${textColor} transition-colors`}
-          style={{ letterSpacing: '-0.02em', fontWeight: 900 }}
+    <div
+      className={`inline-flex items-center justify-center select-none shrink-0 ${solidBackground ? 'bg-black' : ''} ${dimensionClass}`}
+      role="img"
+      aria-label="NESTA MOVEMENT"
+      style={style}
+    >
+      <svg
+        viewBox={showSubtitle ? '0 0 426 99' : '0 0 426 72'}
+        className="h-full w-auto max-w-full block pointer-events-auto"
+        preserveAspectRatio="xMidYMid meet"
+        xmlns="http://www.w3.org/2000/svg"
+        style={{
+          fontFamily: "'Mortend Bold', 'Mortend', sans-serif",
+          background: solidBackground ? '#000000' : 'transparent',
+        }}
+      >
+        <title>NESTA MOVEMENT</title>
+
+        <defs>
+          <linearGradient id="nestaDarkBlueGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stopColor="#3660c2" />
+            <stop offset="35%" stopColor="#244591" />
+            <stop offset="100%" stopColor="#172856" />
+          </linearGradient>
+
+          <filter id="darkBlueGlow" x="-5%" y="-5%" width="110%" height="110%">
+            <feDropShadow dx="0" dy="0" stdDeviation="1.2" floodColor="#3b82f6" floodOpacity="0.22" />
+          </filter>
+        </defs>
+
+        {/* Solid black background for seamless blending with dark-themed website header */}
+        {solidBackground && (
+          <rect width="100%" height="100%" fill="#000000" />
+        )}
+
+        {/* Top: 'NESTA' in Mortend Bold (optically balanced & kerning-calibrated) */}
+        <g
+          className="nesta-title"
+          fill={fillSource}
+          filter={theme === 'dark-blue' ? 'url(#darkBlueGlow)' : undefined}
         >
-          NESTA
-        </span>
-      </div>
-      {showSubtitle && (
-        <span
-          className={`text-[9px] md:text-[10px] uppercase font-bold tracking-[0.32em] -mt-0.5 ${subColor} pl-1`}
-          style={{ letterSpacing: '0.34em' }}
-        >
-          MOVEMENT
-        </span>
-      )}
+          <path d="M72 50.80L72-0.10L90.90-0.10L90.90 71.30L62.90 71.30L18.90 20.40L18.90 71.30L0 71.30L0-0.10L28-0.10" />
+          <path d="M100.90-0.10L178.60-0.10L178.60 17.60L119.80 17.60L119.80 27.50L178.60 27.50L178.60 44.20L119.80 44.20L119.80 53.60L178.60 53.60L178.60 71.30L100.90 71.30" />
+          <path d="M205.60 21.90Q205.60 24.10 208.25 25.10Q210.90 26.10 215.20 26.50Q219.50 26.90 225 27Q230.50 27.10 236.30 27.55Q242.10 28 247.60 29.10Q253.10 30.20 257.40 32.65Q261.70 35.10 264.35 39.10Q267 43.10 267 49.40Q267 51.40 266.65 53.80Q266.30 56.20 265.10 58.65Q263.90 61.10 261.65 63.40Q259.40 65.70 255.65 67.45Q251.90 69.20 246.40 70.25Q240.90 71.30 233.30 71.30L220.50 71.30Q212.90 71.30 207.40 70Q201.90 68.70 198.15 66.65Q194.40 64.60 192.15 61.90Q189.90 59.20 188.70 56.45Q187.50 53.70 187.15 51.05Q186.80 48.40 186.80 46.40L205.70 46.40Q205.70 47.20 206.05 48.40Q206.40 49.60 207.40 50.70Q208.40 51.80 210.35 52.60Q212.30 53.40 215.40 53.40L241.40 53.40Q245.40 53.40 246.75 52.20Q248.10 51 248.10 49.40Q248.10 47 245.45 45.90Q242.80 44.80 238.50 44.40Q234.20 44 228.65 43.95Q223.10 43.90 217.35 43.45Q211.60 43 206.05 41.95Q200.50 40.90 196.20 38.55Q191.90 36.20 189.25 32.20Q186.60 28.20 186.60 21.90Q186.60 18.80 187.55 15Q188.50 11.20 191.95 7.85Q195.40 4.50 202.15 2.20Q208.90-0.10 220.40-0.10L233.10-0.10Q240.80-0.10 246.30 1.20Q251.80 2.50 255.55 4.60Q259.30 6.70 261.55 9.35Q263.80 12 265 14.80Q266.20 17.60 266.55 20.20Q266.90 22.80 266.90 24.90L247.90 24.90Q247.90 24.10 247.60 22.90Q247.30 21.70 246.25 20.60Q245.20 19.50 243.30 18.70Q241.40 17.90 238.20 17.90L212.20 17.90Q208.10 17.90 206.85 19.05Q205.60 20.20 205.60 21.90" />
+          <path d="M271.10 17.90L271.10-0.10L343-0.10L343 17.90L316.20 17.90L316.20 71.30L297.30 71.30L297.30 17.90" />
+          <path d="M367-0.10L390-0.10L425.90 71.30L404.70 71.30L397.40 55.80L359.50 55.80L352.20 71.30L331 71.30L367-0.10M367.50 38.90L389.40 38.90L378.50 15.60" />
+        </g>
+
+        {/* Bottom: 'MOVEMENT' centered below with visually uniform letter spacing */}
+        {showSubtitle && (
+          <g
+            className="movement-subtitle"
+            transform="translate(0, 98.4)"
+            fill={fillSource}
+            filter={theme === 'dark-blue' ? 'url(#darkBlueGlow)' : undefined}
+          >
+            <path d="M109.32-5.18L115.65-18.23L123.50-18.23L123.50-0.03L118.66-0.03L118.66-13.21L112.41-0.03L106.21-0.03L99.96-13.21L99.96-0.03L95.15-0.03L95.15-18.23L102.97-18.23" />
+            <path d="M140.61-18.23L144.56-18.23Q145.38-18.23 146.41-18.14Q147.44-18.05 148.51-17.74Q149.58-17.42 150.60-16.82Q151.62-16.22 152.41-15.21Q153.21-14.20 153.69-12.71Q154.17-11.22 154.17-9.13Q154.17-7.04 153.69-5.55Q153.21-4.05 152.41-3.05Q151.62-2.04 150.60-1.44Q149.58-0.84 148.51-0.52Q147.44-0.20 146.41-0.11Q145.38-0.03 144.56-0.03L140.61-0.03Q139.79-0.03 138.76-0.11Q137.73-0.20 136.66-0.52Q135.59-0.84 134.56-1.44Q133.54-2.04 132.75-3.05Q131.96-4.05 131.48-5.55Q131-7.04 131-9.13Q131-11.22 131.48-12.71Q131.96-14.20 132.75-15.21Q133.54-16.22 134.56-16.82Q135.59-17.42 136.66-17.74Q137.73-18.05 138.76-18.14Q139.79-18.23 140.61-18.23M139.28-4.59L145.89-4.59Q146.86-4.59 147.48-4.97Q148.11-5.36 148.46-5.99Q148.82-6.63 148.96-7.45Q149.10-8.26 149.10-9.13Q149.10-10 148.96-10.81Q148.82-11.63 148.46-12.25Q148.11-12.88 147.48-13.26Q146.86-13.64 145.89-13.64L139.28-13.64Q138.31-13.64 137.69-13.26Q137.06-12.88 136.71-12.25Q136.35-11.63 136.21-10.81Q136.07-10 136.07-9.13Q136.07-8.26 136.21-7.45Q136.35-6.63 136.71-5.99Q137.06-5.36 137.69-4.97Q138.31-4.59 139.28-4.59" />
+            <path d="M170.97-4.03L177.65-18.23L183.05-18.23L173.87-0.03L168.04-0.03L158.86-18.23L164.26-18.23" />
+            <path d="M189.78-18.23L209.60-18.23L209.60-13.72L194.60-13.72L194.60-11.19L209.60-11.19L209.60-6.94L194.60-6.94L194.60-4.54L209.60-4.54L209.60-0.03L189.78-0.03" />
+            <path d="M231.77-5.18L238.10-18.23L245.95-18.23L245.95-0.03L241.11-0.03L241.11-13.21L234.86-0.03L228.66-0.03L222.41-13.21L222.41-0.03L217.59-0.03L217.59-18.23L225.42-18.23" />
+            <path d="M253.94-18.23L273.76-18.23L273.76-13.72L258.76-13.72L258.76-11.19L273.76-11.19L273.76-6.94L258.76-6.94L258.76-4.54L273.76-4.54L273.76-0.03L253.94-0.03" />
+            <path d="M300.13-5.25L300.13-18.23L304.94-18.23L304.94-0.03L297.80-0.03L286.58-13.01L286.58-0.03L281.76-0.03L281.76-18.23L288.91-18.23" />
+            <path d="M312.44-13.64L312.44-18.23L330.77-18.23L330.77-13.64L323.94-13.64L323.94-0.03L319.12-0.03L319.12-13.64" />
+          </g>
+        )}
+      </svg>
     </div>
   );
 };

@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 240" width="100%" height="100%">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Michroma&amp;display=swap');
+      .nesta-title {
+        font-family: 'Michroma', 'Eurostile Bold Extended', 'Microgramma Bold Extended', 'Space Grotesk', system-ui, sans-serif;
+        font-size: 96px;
+        font-weight: 900;
+        letter-spacing: -0.025em;
+        text-anchor: middle;
+        dominant-baseline: central;
+        fill: #19264E;
+        stroke: #19264E;
+        stroke-width: 2.8px;
+        stroke-linejoin: round;
+      }
+      .nesta-sub {
+        font-family: 'Michroma', 'Eurostile', system-ui, sans-serif;
+        font-size: 24px;
+        font-weight: 700;
+        letter-spacing: 0.34em;
+        text-anchor: middle;
+        dominant-baseline: central;
+        fill: #19264E;
+        stroke: #19264E;
+        stroke-width: 0.6px;
+      }
+    </style>
+  </defs>
+  <text x="300" y="98" class="nesta-title">NESTA</text>
+  <text x="304" y="162" class="nesta-sub">MOVEMENT</text>
+</svg>

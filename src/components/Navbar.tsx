@@ -21,9 +21,9 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
 
   const navLinks = [
     { label: 'Disciplines', href: '#disciplines' },
-    { label: 'Class Schedule', href: '#schedule' },
-    { label: 'Pricing & Plans', href: '#pricing' },
-    { label: 'About Studio', href: '#about' },
+    { label: 'Schedule', href: '#schedule' },
+    { label: 'Pricing', href: '#pricing' },
+    { label: 'About', href: '#about' },
     { label: 'Contact', href: '#contact' },
   ];
 
@@ -70,58 +70,54 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
       <header
         className={`sticky top-0 z-40 transition-all duration-300 ${
           scrolled
-            ? 'bg-slate-950/90 backdrop-blur-xl border-b border-slate-800/80 shadow-xl py-3'
-            : 'bg-slate-950/70 backdrop-blur-md border-b border-slate-850 py-4'
+            ? 'bg-black/95 backdrop-blur-xl border-b border-neutral-900 shadow-xl py-3'
+            : 'bg-black/90 backdrop-blur-md border-b border-neutral-900/60 py-4'
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
-          {/* Logo brand */}
-          <a href="#" className="flex items-center gap-3 group">
-            <div className="relative p-1.5 rounded-xl bg-slate-900 border border-slate-800 group-hover:border-blue-500/50 transition">
-              <NestaLogo className="h-9 px-2" theme="dark" />
-            </div>
-            <div className="hidden lg:block">
-              <span className="block text-[11px] font-semibold text-blue-400 tracking-wider uppercase">
-                Movement Studio
-              </span>
-              <span className="block text-[10px] text-slate-400">
-                Agility • Strength • Flow • Martial Art
-              </span>
-            </div>
-          </a>
+          {/* 1. Brand Logo */}
+          <div className="flex-1 flex items-center justify-start min-w-0">
+            <a href="#" className="flex items-center group focus:outline-none py-1">
+              <NestaLogo
+                size="lg"
+                className="h-10 sm:h-11 md:h-12 w-auto transition-transform duration-300 group-hover:scale-[1.02]"
+                theme="dark-blue"
+                solidBackground={true}
+              />
+            </a>
+          </div>
 
-          {/* Desktop Nav Links */}
-          <nav className="hidden md:flex items-center gap-8">
+          {/* 2. Desktop Nav Links - Evenly centered with consistent font, size, and padding */}
+          <nav className="hidden md:flex items-center justify-center flex-initial gap-1 lg:gap-2">
             {navLinks.map((link) => (
               <a
                 key={link.label}
                 href={link.href}
-                className="text-sm font-medium text-slate-300 hover:text-white transition relative py-1 group"
+                className="px-3.5 lg:px-4 py-2 text-sm font-medium tracking-normal text-slate-300 hover:text-white hover:bg-white/5 rounded-lg transition-colors duration-150 whitespace-nowrap"
               >
                 {link.label}
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-500 transition-all duration-300 group-hover:w-full" />
               </a>
             ))}
           </nav>
 
-          {/* Action CTAs */}
-          <div className="hidden sm:flex items-center gap-3">
+          {/* 3. Action CTAs */}
+          <div className="flex-1 hidden sm:flex items-center justify-end gap-3 min-w-0">
             <a
               href={CONTACT_INFO.whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-semibold text-emerald-300 bg-emerald-950/50 border border-emerald-800/60 hover:bg-emerald-900/50 transition"
+              className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-semibold text-emerald-300 bg-emerald-950/50 border border-emerald-800/60 hover:bg-emerald-900/50 transition whitespace-nowrap"
               title="Chat on WhatsApp"
             >
-              <MessageCircle className="w-4 h-4 text-emerald-400" />
+              <MessageCircle className="w-4 h-4 text-emerald-400 shrink-0" />
               <span>{CONTACT_INFO.whatsappFormatted}</span>
             </a>
 
             <button
               onClick={() => onOpenBooking()}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-bold text-white bg-blue-600 hover:bg-blue-500 shadow-md shadow-blue-600/20 active:scale-95 transition"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-bold text-white bg-blue-600 hover:bg-blue-500 shadow-md shadow-blue-600/20 active:scale-95 transition whitespace-nowrap"
             >
-              <Calendar className="w-3.5 h-3.5" />
+              <Calendar className="w-3.5 h-3.5 shrink-0" />
               <span>Book Trial</span>
             </button>
           </div>

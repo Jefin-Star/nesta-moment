@@ -1,16 +1,64 @@
 @import "tailwindcss";
 
+/* Exact Mortend Bold font from the official NESTA MOVEMENT logo */
+@font-face {
+  font-family: 'Mortend Bold';
+  src: url('/fonts/Mortend-Bold.otf') format('opentype'),
+       url('/fonts/Mortend-Bold.ttf') format('truetype');
+  font-weight: 700 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Mortend';
+  src: url('/fonts/Mortend-Bold.otf') format('opentype'),
+       url('/fonts/Mortend-Bold.ttf') format('truetype');
+  font-weight: 700 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Fallback extended fonts */
+@font-face {
+  font-family: 'Eurostile Bold Extended';
+  src: url('/fonts/Eurostile-BoldExtendedTwo.woff2') format('woff2'),
+       url('/fonts/Eurostile-BoldExtendedTwo.woff') format('woff'),
+       url('/fonts/Eurostile-BoldExtendedTwo.ttf') format('truetype');
+  font-weight: 700 900;
+  font-style: normal;
+  font-display: swap;
+}
+
 @theme {
-  --font-display: "Syne", sans-serif;
+  --font-display: "Mortend Bold", "Mortend", "Eurostile Bold Extended", sans-serif;
   --font-sans: "Plus Jakarta Sans", sans-serif;
+  --font-logo: "Mortend Bold", "Mortend", sans-serif;
 }
 
 body {
   font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
+/* Headings and brand typography in Mortend Bold */
 .font-display {
-  font-family: 'Syne', sans-serif;
+  font-family: 'Mortend Bold', 'Mortend', 'Eurostile Bold Extended', sans-serif;
+  font-weight: 700;
+  letter-spacing: 0em;
+}
+
+.font-logo {
+  font-family: 'Mortend Bold', 'Mortend', sans-serif;
+  font-weight: 700;
+  letter-spacing: 0em;
+}
+
+/* Secondary extended subtitle style matching "MOVEMENT" in Mortend Bold */
+.font-extended-sub {
+  font-family: 'Mortend Bold', 'Mortend', sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
 }
 
 /* Custom smooth scrollbar */
@@ -28,4 +76,3 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: #334155;
 }
-

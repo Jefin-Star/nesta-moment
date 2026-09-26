@@ -15,9 +15,7 @@ export const Footer: React.FC = () => {
           {/* Brand Info (2 cols) */}
           <div className="lg:col-span-2 space-y-4">
             <div className="flex items-center gap-3">
-              <div className="p-2 rounded-xl bg-slate-900 border border-slate-800">
-                <NestaLogo className="h-8 px-2" theme="dark" />
-              </div>
+              <NestaLogo size="xl" className="h-11 sm:h-12 md:h-14 w-auto transition-transform group-hover:scale-[1.02]" theme="dark-blue" solidBackground={true} />
             </div>
             <p className="text-slate-400 text-xs leading-relaxed max-w-sm">
               Nesta Movement Studio is Kerala’s dedicated home for functional human agility, relative bodyweight
